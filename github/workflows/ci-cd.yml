@@ -32,4 +32,4 @@ jobs:
         file: ./Dockerfile
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: solidmann/llm-inference-image:latest
+        tags: tahaabolhasani/llm-inference-image:latest
