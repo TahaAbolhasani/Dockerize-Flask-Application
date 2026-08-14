@@ -1,0 +1,161 @@
+Inference Latency (ms),Prediction,Input Text,Timestamp
+25.26,POSITIVE,Hello.,2026-07-28T11:32:29.784326
+23.06,POSITIVE,Good day.,2026-07-28T11:32:29.816787
+20.37,NEGATIVE,How are you,2026-07-28T11:32:29.846970
+21.40,POSITIVE,Thank you,2026-07-28T11:32:29.875757
+19.48,POSITIVE,Yes please,2026-07-28T11:32:29.903127
+18.10,NEGATIVE,No thanks,2026-07-28T11:32:29.928920
+18.92,NEGATIVE,Lets go,2026-07-28T11:32:29.954567
+18.36,POSITIVE,See you soon,2026-07-28T11:32:29.981060
+19.54,POSITIVE,Have a nice day,2026-07-28T11:32:30.007302
+18.34,POSITIVE,Okay sounds good,2026-07-28T11:32:30.032743
+20.86,POSITIVE,The movie was absolutely fantastic and I enjoyed every minute,2026-07-28T11:32:30.060874
+22.87,POSITIVE,I am very happy with the service provided it exceeded my expectations,2026-07-28T11:32:30.090730
+22.02,POSITIVE,The food was delicious and the staff were incredibly friendly and helpful,2026-07-28T11:32:30.119964
+21.59,POSITIVE,This product is amazing I would highly recommend it to everyone,2026-07-28T11:32:30.149411
+21.49,POSITIVE,Everything was perfect from start to finish a truly wonderful experience,2026-07-28T11:32:30.178329
+22.71,POSITIVE,I am extremely satisfied with my purchase and would buy it again,2026-07-28T11:32:30.208142
+22.99,POSITIVE,The quality is excellent and the price is very reasonable great value,2026-07-28T11:32:30.238681
+29.56,POSITIVE,I had a fantastic time and will definitely be returning in the future,2026-07-28T11:32:30.274799
+21.37,POSITIVE,The atmosphere was lovely and the overall experience was top notch,2026-07-28T11:32:30.304098
+23.06,POSITIVE,I could not be happier with the outcome truly exceptional work,2026-07-28T11:32:30.334934
+22.47,NEGATIVE,The movie was terrible and I regretted wasting my time watching it,2026-07-28T11:32:30.364137
+24.00,NEGATIVE,I am very disappointed with the service it was far below my expectations,2026-07-28T11:32:30.395426
+25.63,NEGATIVE,The food was awful and the staff were rude and unhelpful a terrible experience,2026-07-28T11:32:30.428336
+24.37,NEGATIVE,This product is a complete waste of money do not buy it extremely poor quality,2026-07-28T11:32:30.459528
+23.48,NEGATIVE,Everything was a disaster from beginning to end a truly awful and frustrating experience,2026-07-28T11:32:30.490259
+24.31,NEGATIVE,I am extremely dissatisfied and will never purchase anything from this company again,2026-07-28T11:32:30.521267
+32.74,NEGATIVE,The quality is terrible and the price is outrageous absolutely no value for money,2026-07-28T11:32:30.560603
+25.64,NEGATIVE,I had a terrible time and would strongly advise everyone to avoid this place in the future,2026-07-28T11:32:30.593281
+22.34,NEGATIVE,The atmosphere was unpleasant and the whole experience was incredibly disappointing,2026-07-28T11:32:30.622945
+35.14,NEGATIVE,I could not be more unhappy with the result completely unacceptable and unprofessional work,2026-07-28T11:32:30.664917
+25.45,NEGATIVE,While the plot was confusing the acting was superb but the ending made little sense What did you think,2026-07-28T11:32:30.698281
+25.20,NEGATIVE,Although it started promisingly the second half of the book really let me down which is a shame,2026-07-28T11:32:30.730702
+21.37,POSITIVE,Despite some initial flaws the product ultimately delivered on its promises surprisingly,2026-07-28T11:32:30.759221
+23.95,POSITIVE,Even though it rained all day we still managed to have a good time can you believe it,2026-07-28T11:32:30.790448
+28.83,POSITIVE,Considering the price the quality is acceptable but is it really worth the money in the long run,2026-07-28T11:32:30.826583
+23.37,NEGATIVE,While I appreciate the effort the final result is simply not up to par unfortunately,2026-07-28T11:32:30.857760
+25.36,NEGATIVE,Although I had high hopes the experience was ultimately underwhelming and forgettable sadly,2026-07-28T11:32:30.891166
+40.33,NEGATIVE,Despite the positive reviews I found it to be quite mediocre and not particularly memorable to be honest,2026-07-28T11:32:30.939413
+27.11,NEGATIVE,Even with the discounts I am not sure if it is a good deal what do you think about the value proposition,2026-07-28T11:32:30.973772
+23.84,NEGATIVE,While some aspects were well done the overall impression was rather disappointing wouldnt you agree,2026-07-28T11:32:31.004678
+21.79,POSITIVE,Container orchestration in Docker Swarm is essential for scalability,2026-07-28T11:32:31.033917
+22.93,POSITIVE,Latency and throughput are key metrics for LLM inference performance,2026-07-28T11:32:31.063591
+20.03,POSITIVE,Network topology significantly impacts distributed systems,2026-07-28T11:32:31.091088
+34.39,NEGATIVE,Bash scripts can be used for IT automation,2026-07-28T11:32:31.132177
+23.83,POSITIVE,Distributed topology involves remote sites,2026-07-28T11:32:31.162633
+21.99,NEGATIVE,Mesh networks in Docker Swarm may have performance penalties,2026-07-28T11:32:31.191720
+21.89,NEGATIVE,Large language model prompts can be complex,2026-07-28T11:32:31.220980
+21.83,NEGATIVE,Poor Swarm performance can lead to lag,2026-07-28T11:32:31.249295
+22.13,POSITIVE,LLMs explore latency throughput and cost,2026-07-28T11:32:31.278272
+22.22,NEGATIVE,New bash scripts can be generated by LLMs,2026-07-28T11:32:31.308679
+47.70,POSITIVE,The advancements in large language models have been truly remarkable in recent years Their ability to understand and generate human like text is transforming various industries and applications From natural language processing to content creation the potential is vast,2026-07-28T11:32:31.362813
+35.92,POSITIVE,Despite the excitement there are also valid concerns regarding the ethical implications of increasingly powerful LLMs Issues such as bias in training data the potential for misuse and the societal impact of automation need careful consideration and responsible development practices,2026-07-28T11:32:31.406636
+35.11,NEGATIVE,The performance of distributed systems is heavily influenced by network topology Choosing the right network structure is crucial for ensuring scalability reliability and efficient communication between components especially in demanding applications like distributed LLM inference,2026-07-28T11:32:31.448846
+37.18,NEGATIVE,While Docker Swarm offers built in mesh networking for service discovery it is important to be aware of potential performance overhead associated with mesh topologies in certain scenarios Careful monitoring and performance testing are recommended to optimize Swarm deployments,2026-07-28T11:32:31.493962
+39.78,POSITIVE,Timothee Lacroix CTO of Mistral discussed exploring the latency throughput and cost space for LLM inference highlighting the importance of optimizing these factors for practical LLM deployments Understanding these trade offs is crucial for real world applications,2026-07-28T11:32:31.540939
+37.96,NEGATIVE,The newly created Docker Swarm cluster exhibited surprisingly poor performance with significant lag observed when interacting with the cluster management interface particularly through Portainer indicating potential architectural bottlenecks,2026-07-28T11:32:31.586777
+53.27,NEGATIVE,Bash one liners and even more complex scripts can be effectively leveraged for various IT automation tasks and advanced large language models can even assist in generating these scripts for system reliability engineering and other domains,2026-07-28T11:32:31.648104
+30.21,POSITIVE,In a distributed topology a common architecture involves deploying application components across multiple geographically dispersed remote sites enhancing resilience and proximity to end users,2026-07-28T11:32:31.685456
+34.43,POSITIVE,Generating custom bash scripts using sophisticated 70B parameter LLMs integrated directly into the shell environment represents a cutting edge approach to automating and streamlining system administration and development workflows,2026-07-28T11:32:31.727097
+37.74,POSITIVE,Understanding the intricate interplay between latency throughput and cost is paramount when deploying large language models for inference in production environments demanding careful optimization and resource management,2026-07-28T11:32:31.772914
+18.89,NEGATIVE,Testing latency for repeated query,2026-07-28T11:32:31.799815
+28.99,NEGATIVE,Another latency measurement for consistency check,2026-07-28T11:32:31.835867
+20.26,NEGATIVE,Measuring latency under slightly different input,2026-07-28T11:32:31.864466
+22.73,NEGATIVE,Latency test with input variation number ${i},2026-07-28T11:32:31.894140
+22.45,NEGATIVE,Run ${i} of latency measurement series,2026-07-28T11:32:31.923846
+80.83,NEGATIVE,This is a very long sentence designed to test the latency impact of input text length on the LLM inference service We are exploring how the length of the input affects the processing time and overall performance This paragraph is intentionally extended to simulate scenarios where the model needs to handle more substantial amounts of textual data for sentiment analysis We will analyze the latency measurements for these long inputs in comparison to shorter sentences to determine if there is a significant correlation between input length and inference time  Understanding this relationship is crucial for optimizing the service and predicting performance under varying workloads,2026-07-28T11:32:32.012187
+28.14,NEGATIVE,This movie felt like the inside of my head,2026-07-28T11:32:32.048267
+19.76,NEGATIVE,Bad cheesy acting dumb ending,2026-07-28T11:32:32.075200
+20.46,NEGATIVE,Plot is interesting but its not even worth a watch,2026-07-28T11:32:32.102851
+19.36,NEGATIVE,It was so terribly made,2026-07-28T11:32:32.129285
+19.02,NEGATIVE,Nothing is explained,2026-07-28T11:32:32.154998
+21.16,NEGATIVE,The whole journey is pointless,2026-07-28T11:32:32.182868
+20.99,POSITIVE,Never seen anyone miss the point so bad,2026-07-28T11:32:32.210471
+25.67,NEGATIVE,It was almost admirable how bad they missed it,2026-07-28T11:32:32.243629
+36.16,POSITIVE,A movie that has terrible reviews but you enjoy anyway,2026-07-28T11:32:32.286298
+46.67,NEGATIVE,What popular film do you think is a complete waste of time,2026-07-28T11:32:32.340339
+38.73,NEGATIVE,A movie so terrible you would never waste your time again,2026-07-28T11:32:32.388471
+25.71,NEGATIVE,What movie do you think is horrible and overrated,2026-07-28T11:32:32.422892
+28.66,NEGATIVE,When I love a movie so much and see negative reviews,2026-07-28T11:32:32.460839
+26.23,NEGATIVE,I stop liking it,2026-07-28T11:32:32.495492
+29.89,NEGATIVE,Start to feel as if its mediocre,2026-07-28T11:32:32.534527
+21.68,NEGATIVE,How do I stop this,2026-07-28T11:32:32.563828
+23.38,NEGATIVE,What puts you in a terrible mood,2026-07-28T11:32:32.594002
+21.01,NEGATIVE,Its something as non essential,2026-07-28T11:32:32.621798
+18.45,NEGATIVE,Actually a horrible explanation,2026-07-28T11:32:32.647427
+21.53,NEGATIVE,Felt like the inside of my head,2026-07-28T11:32:32.675660
+22.35,NEGATIVE,World of non stop news most of it bad,2026-07-28T11:32:32.705304
+26.10,NEGATIVE,How is a person like me,2026-07-28T11:32:32.738699
+23.18,NEGATIVE,Trouble understanding everything,2026-07-28T11:32:32.772085
+34.28,NEGATIVE,Bad acting,2026-07-28T11:32:32.812987
+37.68,NEGATIVE,Dumb ending,2026-07-28T11:32:32.867788
+36.54,NEGATIVE,Terribly made,2026-07-28T11:32:32.912041
+36.54,NEGATIVE,Not even worth a watch,2026-07-28T11:32:32.957250
+26.55,NEGATIVE,Nothing explained,2026-07-28T11:32:32.995677
+32.65,NEGATIVE,Pointless journey,2026-07-28T11:32:33.036474
+24.48,NEGATIVE,Missed the point so bad,2026-07-28T11:32:33.072364
+31.83,NEGATIVE,Almost admirable how bad,2026-07-28T11:32:33.112135
+32.08,POSITIVE,Terrible reviews but you enjoy anyway,2026-07-28T11:32:33.152970
+23.09,POSITIVE,I absolutely promise not to waste your time,2026-07-28T11:32:33.184927
+27.73,POSITIVE,Piece them together with commentary,2026-07-28T11:32:33.219401
+39.66,POSITIVE,Make my full reviews here on Medium,2026-07-28T11:32:33.266417
+27.12,NEGATIVE,Before they go anywhere else,2026-07-28T11:32:33.300593
+20.67,POSITIVE,Enjoyed every minute,2026-07-28T11:32:33.328516
+19.81,POSITIVE,Exceeded my expectations,2026-07-28T11:32:33.356047
+21.19,POSITIVE,Incredibly friendly and helpful staff,2026-07-28T11:32:33.385912
+26.49,POSITIVE,Highly recommend it to everyone,2026-07-28T11:32:33.419927
+21.16,POSITIVE,Truly wonderful experience,2026-07-28T11:32:33.448040
+25.28,POSITIVE,Extremely satisfied with my purchase,2026-07-28T11:32:33.482689
+32.66,POSITIVE,Great value for money,2026-07-28T11:32:33.521918
+25.42,POSITIVE,Definitely be returning,2026-07-28T11:32:33.555396
+18.80,POSITIVE,Top notch overall experience,2026-07-28T11:32:33.581350
+18.27,POSITIVE,Truly exceptional work,2026-07-28T11:32:33.607656
+19.45,NEGATIVE,Regretted wasting my time watching it,2026-07-28T11:32:33.635131
+18.59,POSITIVE,Far below my expectations,2026-07-28T11:32:33.661466
+18.32,NEGATIVE,Awful food rude staff,2026-07-28T11:32:33.687783
+18.62,NEGATIVE,Terrible experience all around,2026-07-28T11:32:33.714341
+18.62,NEGATIVE,Complete waste of money,2026-07-28T11:32:33.741289
+19.91,NEGATIVE,Do not buy it,2026-07-28T11:32:33.768464
+24.58,NEGATIVE,Extremely poor quality,2026-07-28T11:32:33.800415
+33.68,NEGATIVE,Disaster from beginning to end,2026-07-28T11:32:33.841006
+31.94,NEGATIVE,Awful and frustrating,2026-07-28T11:32:33.880623
+31.02,NEGATIVE,Extremely dissatisfied,2026-07-28T11:32:33.918134
+31.31,NEGATIVE,Never purchase again,2026-07-28T11:32:33.958930
+30.08,NEGATIVE,Terrible quality outrageous price,2026-07-28T11:32:33.997837
+30.76,NEGATIVE,No value for money,2026-07-28T11:32:34.038287
+28.57,NEGATIVE,Strongly advise everyone to avoid,2026-07-28T11:32:34.074907
+17.79,NEGATIVE,Unpleasant atmosphere,2026-07-28T11:32:34.100760
+18.25,NEGATIVE,Incredibly disappointing experience,2026-07-28T11:32:34.126880
+18.36,NEGATIVE,Completely unacceptable work,2026-07-28T11:32:34.152285
+18.77,NEGATIVE,Unprofessional result,2026-07-28T11:32:34.178274
+22.13,NEGATIVE,While the visuals were stunning the story just didnt grab me at all,2026-07-28T11:32:34.207613
+24.36,NEGATIVE,I wanted to love this film but it ended up being quite a letdown in the end,2026-07-28T11:32:34.239128
+25.56,NEGATIVE,Despite the hype I found it to be rather mediocre and forgettable to be honest,2026-07-28T11:32:34.271926
+23.09,NEGATIVE,The plot was all over the place and the characters felt very underdeveloped,2026-07-28T11:32:34.302959
+22.69,NEGATIVE,I went in with high expectations but left feeling utterly disappointed and bored,2026-07-28T11:32:34.333008
+22.03,NEGATIVE,Honestly I struggled to stay awake through most of it it was that dull,2026-07-28T11:32:34.362311
+22.08,NEGATIVE,The acting was wooden and the dialogue was incredibly cliched and predictable,2026-07-28T11:32:34.391824
+27.03,NEGATIVE,I wouldnt recommend this movie to anyone unless you are looking for something to put you to sleep,2026-07-28T11:32:34.425867
+23.93,NEGATIVE,A complete waste of time and money I wish I had chosen to watch something else,2026-07-28T11:32:34.457747
+28.77,POSITIVE,If you are considering watching this just dont You will thank me later for saving you the trouble,2026-07-28T11:32:34.493874
+21.96,NEGATIVE,It had its moments but overall it was just okay nothing special,2026-07-28T11:32:34.523303
+28.14,NEGATIVE,Parts of it were good but other parts were quite confusing and dragged on,2026-07-28T11:32:34.559917
+28.93,NEGATIVE,I can see why some people liked it but it wasnt really my cup of tea,2026-07-28T11:32:34.595519
+26.58,NEGATIVE,Its not the worst movie Ive seen but definitely not the best either somewhere in the middle,2026-07-28T11:32:34.628853
+21.35,NEGATIVE,There were some interesting ideas but the execution was lacking and inconsistent,2026-07-28T11:32:34.659111
+23.37,NEGATIVE,It had potential but it didnt quite live up to it which is a shame,2026-07-28T11:32:34.689734
+22.80,POSITIVE,Its a mixed bag some good aspects some not so good ultimately average,2026-07-28T11:32:34.719712
+23.93,POSITIVE,Not terrible but not great either just a very okay movie if you have nothing else to watch,2026-07-28T11:32:34.750794
+35.90,NEGATIVE,Its watchable but dont expect to be blown away or remember it for very long,2026-07-28T11:32:34.793771
+29.31,NEGATIVE,If you are really bored maybe give it a try otherwise you are not missing much really,2026-07-28T11:32:34.830658
+21.42,NEGATIVE,The movie just left me feeling empty you know,2026-07-28T11:32:34.859732
+21.09,NEGATIVE,Honestly I was expecting so much more from this film,2026-07-28T11:32:34.887894
+21.37,NEGATIVE,What a waste of a perfectly good evening seriously,2026-07-28T11:32:34.916758
+35.84,NEGATIVE,I am still trying to figure out what the point of this movie even was,2026-07-28T11:32:34.961097
+33.19,NEGATIVE,If I could get those two hours of my life back I would in a heartbeat,2026-07-28T11:32:35.002329
+22.27,NEGATIVE,Seriously dont believe the hype its really not worth it trust me,2026-07-28T11:32:35.032464
+23.69,NEGATIVE,I am actually kind of annoyed that I spent money on this to be honest,2026-07-28T11:32:35.064317
+21.64,NEGATIVE,They really dropped the ball with this one what a disappointment truly,2026-07-28T11:32:35.094284
+26.60,NEGATIVE,My expectations were low and somehow it still managed to disappoint me impressive,2026-07-28T11:32:35.128979
+39.33,NEGATIVE,I am not even sure how this movie got made it was just so bad on so many levels wow,2026-07-28T11:32:35.176519

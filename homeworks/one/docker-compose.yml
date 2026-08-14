@@ -1,12 +1,8 @@
-version: '3.8'
-
 services:
-  llm-inference:
-    image: tahaabolhasani/llm-inference-image
-    ports:
-      - "8080:5000"
+  llm-inference-service:
+    image: tahaabolhasani/llm-inference-image:latest
+    network_mode: host
     environment:
       - METRICS_LOG_FILE=inside_compose_inference_metrics.csv
     volumes:
       - ./compose_inference_metrics.csv:/app/inside_compose_inference_metrics.csv
-

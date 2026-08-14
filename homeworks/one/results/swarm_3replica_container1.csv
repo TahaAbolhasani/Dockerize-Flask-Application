@@ -1,0 +1,54 @@
+Inference Latency (ms),Prediction,Input Text,Timestamp
+29.63,NEGATIVE,How are you,2026-08-14T00:04:14.161384
+33.51,NEGATIVE,No thanks,2026-08-14T00:04:14.281224
+31.91,POSITIVE,Have a nice day,2026-08-14T00:04:14.397520
+37.64,POSITIVE,I am very happy with the service provided it exceeded my expectations,2026-08-14T00:04:14.525175
+37.97,POSITIVE,Everything was perfect from start to finish a truly wonderful experience,2026-08-14T00:04:14.660955
+39.69,POSITIVE,I had a fantastic time and will definitely be returning in the future,2026-08-14T00:04:14.794128
+36.24,NEGATIVE,The movie was terrible and I regretted wasting my time watching it,2026-08-14T00:04:14.924984
+35.27,NEGATIVE,This product is a complete waste of money do not buy it extremely poor quality,2026-08-14T00:04:15.060119
+31.69,NEGATIVE,The quality is terrible and the price is outrageous absolutely no value for money,2026-08-14T00:04:15.205870
+44.55,NEGATIVE,I could not be more unhappy with the result completely unacceptable and unprofessional work,2026-08-14T00:04:15.366237
+47.60,POSITIVE,Despite some initial flaws the product ultimately delivered on its promises surprisingly,2026-08-14T00:04:15.529442
+40.40,NEGATIVE,While I appreciate the effort the final result is simply not up to par unfortunately,2026-08-14T00:04:15.700974
+48.79,NEGATIVE,Even with the discounts I am not sure if it is a good deal what do you think about the value proposition,2026-08-14T00:04:15.858406
+39.78,POSITIVE,Latency and throughput are key metrics for LLM inference performance,2026-08-14T00:04:16.011281
+34.47,POSITIVE,Distributed topology involves remote sites,2026-08-14T00:04:16.134205
+32.34,NEGATIVE,Poor Swarm performance can lead to lag,2026-08-14T00:04:16.259553
+53.05,POSITIVE,The advancements in large language models have been truly remarkable in recent years Their ability to understand and generate human like text is transforming various industries and applications From natural language processing to content creation the potential is vast,2026-08-14T00:04:16.407177
+50.60,NEGATIVE,While Docker Swarm offers built in mesh networking for service discovery it is important to be aware of potential performance overhead associated with mesh topologies in certain scenarios Careful monitoring and performance testing are recommended to optimize Swarm deployments,2026-08-14T00:04:16.604982
+48.56,NEGATIVE,Bash one liners and even more complex scripts can be effectively leveraged for various IT automation tasks and advanced large language models can even assist in generating these scripts for system reliability engineering and other domains,2026-08-14T00:04:16.777403
+47.59,POSITIVE,Understanding the intricate interplay between latency throughput and cost is paramount when deploying large language models for inference in production environments demanding careful optimization and resource management,2026-08-14T00:04:16.934218
+31.08,NEGATIVE,Measuring latency under slightly different input,2026-08-14T00:04:17.056253
+84.95,NEGATIVE,This is a very long sentence designed to test the latency impact of input text length on the LLM inference service We are exploring how the length of the input affects the processing time and overall performance This paragraph is intentionally extended to simulate scenarios where the model needs to handle more substantial amounts of textual data for sentiment analysis We will analyze the latency measurements for these long inputs in comparison to shorter sentences to determine if there is a significant correlation between input length and inference time  Understanding this relationship is crucial for optimizing the service and predicting performance under varying workloads,2026-08-14T00:04:17.238234
+35.79,NEGATIVE,Plot is interesting but its not even worth a watch,2026-08-14T00:04:17.361667
+30.38,NEGATIVE,The whole journey is pointless,2026-08-14T00:04:17.477713
+37.24,POSITIVE,A movie that has terrible reviews but you enjoy anyway,2026-08-14T00:04:17.610293
+36.69,NEGATIVE,What movie do you think is horrible and overrated,2026-08-14T00:04:17.739012
+32.60,NEGATIVE,Start to feel as if its mediocre,2026-08-14T00:04:17.864291
+36.79,NEGATIVE,Its something as non essential,2026-08-14T00:04:17.983723
+38.20,NEGATIVE,World of non stop news most of it bad,2026-08-14T00:04:18.113950
+33.26,NEGATIVE,Bad acting,2026-08-14T00:04:18.234606
+33.63,NEGATIVE,Not even worth a watch,2026-08-14T00:04:18.351418
+31.03,NEGATIVE,Missed the point so bad,2026-08-14T00:04:18.466659
+34.27,POSITIVE,I absolutely promise not to waste your time,2026-08-14T00:04:18.594312
+35.38,NEGATIVE,Before they go anywhere else,2026-08-14T00:04:18.720422
+35.75,POSITIVE,Incredibly friendly and helpful staff,2026-08-14T00:04:18.847496
+34.66,POSITIVE,Extremely satisfied with my purchase,2026-08-14T00:04:18.969178
+33.37,POSITIVE,Top notch overall experience,2026-08-14T00:04:19.089416
+29.78,POSITIVE,Far below my expectations,2026-08-14T00:04:19.213918
+34.12,NEGATIVE,Complete waste of money,2026-08-14T00:04:19.333668
+35.41,NEGATIVE,Disaster from beginning to end,2026-08-14T00:04:19.459526
+35.48,NEGATIVE,Never purchase again,2026-08-14T00:04:19.580936
+35.05,NEGATIVE,Strongly advise everyone to avoid,2026-08-14T00:04:19.705623
+33.50,NEGATIVE,Completely unacceptable work,2026-08-14T00:04:19.823201
+44.32,NEGATIVE,I wanted to love this film but it ended up being quite a letdown in the end,2026-08-14T00:04:19.969376
+42.94,NEGATIVE,I went in with high expectations but left feeling utterly disappointed and bored,2026-08-14T00:04:20.122901
+36.09,NEGATIVE,I wouldnt recommend this movie to anyone unless you are looking for something to put you to sleep,2026-08-14T00:04:20.263479
+36.84,NEGATIVE,It had its moments but overall it was just okay nothing special,2026-08-14T00:04:20.402096
+35.78,NEGATIVE,Its not the worst movie Ive seen but definitely not the best either somewhere in the middle,2026-08-14T00:04:20.536537
+37.58,POSITIVE,Its a mixed bag some good aspects some not so good ultimately average,2026-08-14T00:04:20.677174
+43.94,NEGATIVE,If you are really bored maybe give it a try otherwise you are not missing much really,2026-08-14T00:04:20.808969
+41.89,NEGATIVE,What a waste of a perfectly good evening seriously,2026-08-14T00:04:20.951483
+38.00,NEGATIVE,Seriously dont believe the hype its really not worth it trust me,2026-08-14T00:04:21.093150
+33.82,NEGATIVE,My expectations were low and somehow it still managed to disappoint me impressive,2026-08-14T00:04:21.221760

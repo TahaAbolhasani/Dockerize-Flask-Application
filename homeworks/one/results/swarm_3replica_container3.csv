@@ -1,0 +1,55 @@
+Inference Latency (ms),Prediction,Input Text,Timestamp
+26.05,POSITIVE,Hello.,2026-08-14T00:04:14.066268
+32.00,POSITIVE,Thank you,2026-08-14T00:04:14.200900
+30.79,NEGATIVE,Lets go,2026-08-14T00:04:14.321536
+32.18,POSITIVE,Okay sounds good,2026-08-14T00:04:14.436732
+36.42,POSITIVE,The food was delicious and the staff were incredibly friendly and helpful,2026-08-14T00:04:14.568808
+38.57,POSITIVE,I am extremely satisfied with my purchase and would buy it again,2026-08-14T00:04:14.706510
+35.36,POSITIVE,The atmosphere was lovely and the overall experience was top notch,2026-08-14T00:04:14.839482
+32.49,NEGATIVE,I am very disappointed with the service it was far below my expectations,2026-08-14T00:04:14.964593
+39.99,NEGATIVE,Everything was a disaster from beginning to end a truly awful and frustrating experience,2026-08-14T00:04:15.107227
+46.20,NEGATIVE,I had a terrible time and would strongly advise everyone to avoid this place in the future,2026-08-14T00:04:15.262897
+40.95,NEGATIVE,While the plot was confusing the acting was superb but the ending made little sense What did you think,2026-08-14T00:04:15.414696
+50.07,POSITIVE,Even though it rained all day we still managed to have a good time can you believe it,2026-08-14T00:04:15.592514
+39.95,NEGATIVE,Although I had high hopes the experience was ultimately underwhelming and forgettable sadly,2026-08-14T00:04:15.749800
+49.01,NEGATIVE,While some aspects were well done the overall impression was rather disappointing wouldnt you agree,2026-08-14T00:04:15.915489
+33.22,POSITIVE,Network topology significantly impacts distributed systems,2026-08-14T00:04:16.051955
+37.12,NEGATIVE,Mesh networks in Docker Swarm may have performance penalties,2026-08-14T00:04:16.178495
+34.77,POSITIVE,LLMs explore latency throughput and cost,2026-08-14T00:04:16.302096
+58.39,POSITIVE,Despite the excitement there are also valid concerns regarding the ethical implications of increasingly powerful LLMs Issues such as bias in training data the potential for misuse and the societal impact of automation need careful consideration and responsible development practices,2026-08-14T00:04:16.472768
+48.35,POSITIVE,Timothee Lacroix CTO of Mistral discussed exploring the latency throughput and cost space for LLM inference highlighting the importance of optimizing these factors for practical LLM deployments Understanding these trade offs is crucial for real world applications,2026-08-14T00:04:16.661869
+39.04,POSITIVE,In a distributed topology a common architecture involves deploying application components across multiple geographically dispersed remote sites enhancing resilience and proximity to end users,2026-08-14T00:04:16.823694
+34.96,NEGATIVE,Testing latency for repeated query,2026-08-14T00:04:16.976356
+37.74,NEGATIVE,Latency test with input variation number ${i},2026-08-14T00:04:17.101399
+34.89,NEGATIVE,This movie felt like the inside of my head,2026-08-14T00:04:17.280287
+34.90,NEGATIVE,It was so terribly made,2026-08-14T00:04:17.404042
+31.31,POSITIVE,Never seen anyone miss the point so bad,2026-08-14T00:04:17.516172
+37.34,NEGATIVE,What popular film do you think is a complete waste of time,2026-08-14T00:04:17.654952
+39.66,NEGATIVE,When I love a movie so much and see negative reviews,2026-08-14T00:04:17.785808
+30.02,NEGATIVE,How do I stop this,2026-08-14T00:04:17.901677
+34.52,NEGATIVE,Actually a horrible explanation,2026-08-14T00:04:18.026423
+32.31,NEGATIVE,How is a person like me,2026-08-14T00:04:18.153775
+29.07,NEGATIVE,Dumb ending,2026-08-14T00:04:18.270989
+29.97,NEGATIVE,Nothing explained,2026-08-14T00:04:18.388403
+35.09,NEGATIVE,Almost admirable how bad,2026-08-14T00:04:18.508692
+33.97,POSITIVE,Piece them together with commentary,2026-08-14T00:04:18.635351
+33.33,POSITIVE,Enjoyed every minute,2026-08-14T00:04:18.762209
+34.96,POSITIVE,Highly recommend it to everyone,2026-08-14T00:04:18.889602
+32.33,POSITIVE,Great value for money,2026-08-14T00:04:19.009184
+34.53,POSITIVE,Truly exceptional work,2026-08-14T00:04:19.130972
+29.06,NEGATIVE,Awful food rude staff,2026-08-14T00:04:19.250051
+35.29,NEGATIVE,Do not buy it,2026-08-14T00:04:19.375978
+33.35,NEGATIVE,Awful and frustrating,2026-08-14T00:04:19.500248
+34.65,NEGATIVE,Terrible quality outrageous price,2026-08-14T00:04:19.622552
+34.28,NEGATIVE,Unpleasant atmosphere,2026-08-14T00:04:19.748129
+35.31,NEGATIVE,Unprofessional result,2026-08-14T00:04:19.865741
+41.10,NEGATIVE,Despite the hype I found it to be rather mediocre and forgettable to be honest,2026-08-14T00:04:20.019985
+41.47,NEGATIVE,Honestly I struggled to stay awake through most of it it was that dull,2026-08-14T00:04:20.171911
+36.61,NEGATIVE,A complete waste of time and money I wish I had chosen to watch something else,2026-08-14T00:04:20.307156
+41.27,NEGATIVE,Parts of it were good but other parts were quite confusing and dragged on,2026-08-14T00:04:20.450300
+39.39,NEGATIVE,There were some interesting ideas but the execution was lacking and inconsistent,2026-08-14T00:04:20.582922
+32.57,POSITIVE,Not terrible but not great either just a very okay movie if you have nothing else to watch,2026-08-14T00:04:20.717257
+39.52,NEGATIVE,The movie just left me feeling empty you know,2026-08-14T00:04:20.855975
+38.93,NEGATIVE,I am still trying to figure out what the point of this movie even was,2026-08-14T00:04:20.997848
+38.28,NEGATIVE,I am actually kind of annoyed that I spent money on this to be honest,2026-08-14T00:04:21.138416
+44.74,NEGATIVE,I am not even sure how this movie got made it was just so bad on so many levels wow,2026-08-14T00:04:21.273493

@@ -1,243 +1,111 @@
-# Dockerize-Flask-Application
+# Dockerize Flask Application — LLM Inference Benchmarking Across Docker, Compose & Swarm
 
-# First Homework
+A hands-on cloud infrastructure project benchmarking the performance of an LLM-based sentiment analysis service across four deployment strategies: running directly on a host machine, a single Docker container, Docker Compose, and Docker Swarm (with horizontal scaling to 3 replicas).
 
-**Foundational Cloud Infrastructure and Performance Analysis of a Containerized LLM Inference Service using the Docker Ecosystem**
+## Overview
 
-Due date until <mark>1403-12-29</mark> at [this](https://docs.google.com/forms/d/e/1FAIpQLSd8tSIPcoEG5eFrucAlWCkpcZtAXNzwP7KmUrP_oICzbUSurw/viewform?usp=dialog) google form.
+This project containerizes a Flask-based sentiment analysis inference service (using HuggingFace's `distilbert-base-uncased-finetuned-sst-2-english` model) and systematically measures inference latency across four deployment configurations to understand the real-world performance trade-offs of each containerization/orchestration approach.
 
-## Description
+**Deployment methods compared:**
+1. **Host** — running the Flask app directly on the machine (baseline)
+2. **Docker** — a single containerized instance
+3. **Docker Compose** — declarative single-service orchestration
+4. **Docker Swarm** — service orchestration with 1 and 3 replicas, load-balanced via Swarm's routing mesh
 
-This introductory homework assignment is designed to establish a foundational understanding of core cloud infrastructure technologies, specifically focusing on containerization, multi-container orchestration, and basic service orchestration using the Docker ecosystem. Within the context of a cloud-native paradigm, this exercise explores the practical application of Docker, Docker Compose, and Docker Swarm for deploying and managing a representative application: <mark>an LLM-based sentiment analysis inference service</mark>.
+Each stage sends the same 160 HTTP requests (via `latency_test.sh`) covering short phrases, long paragraphs, and mixed-sentiment text, and logs per-request inference latency to a CSV file.
 
-The assignment emphasizes empirical performance analysis as a critical aspect of cloud deployments. Students will systematically progress through containerizing the LLM service with Docker, orchestrating it as a multi-container application using Docker Compose, and subsequently deploying and scaling it using Docker Swarm. At each stage, students are tasked with rigorously measuring and documenting key performance indicators, namely, **inference latency and resource utilization** (CPU, memory and Network I/O).
+## Project Structure
 
-This methodical approach enables students to directly observe and quantify the impact of containerization and orchestration on the performance characteristics of the LLM inference service. By comparing performance metrics across different deployment configurations, students will gain practical insights into the benefits and potential trade-offs associated with each Docker tool in terms of latency and resource consumption.
-
-## Objective
-
-* **Containerize an Application using Docker:** Successfully package an LLM inference service into a Docker container, demonstrating proficiency in Dockerfile creation and image management.
-* **Orchestrate Multi-Container Applications with Docker Compose:** Utilize Docker Compose to define and manage a single-service application, understanding the benefits of declarative configuration for containerized workloads.
-* **Deploy and Scale Services with Docker Swarm:** Employ Docker Swarm to deploy the LLM inference service as a scalable service, exploring basic service orchestration and replica management.
-* **Measure and Analyze Performance Metrics:** Implement and execute a performance measurement methodology to quantify inference latency and resource utilization (CPU and memory) for the LLM inference service across different Docker deployment configurations.
-* **Compare Performance across Docker Tools:** Analyze and compare the measured performance data obtained from Docker containers, Docker Compose, and Docker Swarm deployments, drawing informed conclusions about the performance implications of each technology.
-* **Establish a Baseline for Cloud Performance Analysis:** Develop a foundational understanding of performance metrics and measurement techniques in cloud environments, setting the stage for more sophisticated monitoring and analysis in subsequent assignments and research endeavors.
-
-
-## Report expectations
-
-- Compare and explain the monitored metrics, such as CPU, memory, network I/O, and latency, in a plot for all four deployment methods.
-- Explain the pros and cons of running an application on your own system, Docker, Docker Compose, and Docker Swarm in your own words.
-
-## Instructions
-
-Considering this project structure:
-
-```md
+```
 homeworks/one/
-├── app.py (Python Flask application with LLM inference and logging)
-├── Dockerfile (Dockerfile for containerizing the app)
-├── requirements.txt (Python dependencies)
-└── docker-compose.yml (Docker Compose configuration)
+├── app.py                  # Flask inference service with latency logging
+├── Dockerfile               # Image build spec (model is pre-downloaded/baked at build time)
+├── docker-compose.yml       # Compose service definition (host networking)
+├── requirements.txt         # Python dependencies (torch CPU build, transformers, flask)
+├── latency_test.sh          # Sends 160 varied POST requests to /infer
+├── analyze_results.py       # Loads all result CSVs, computes stats, generates comparison plots
+└── results/                 # All raw latency data, summary stats, and generated plots
 ```
 
-One has to set the working directory to `homeworks/one`, then create a new Python virtual environment in this folder and activate it (optional but recommended).
+## How It Works
 
-### Host machine setup
+`app.py` exposes a single endpoint, `POST /infer`, which accepts `{"text": "..."}`, runs it through the sentiment model, and returns the predicted label. Every request's latency (measured strictly around the model inference call, excluding model load time), prediction, input text, and timestamp are appended to a CSV file, whose name is configurable via the `METRICS_LOG_FILE` environment variable — this lets each deployment stage log to a distinct file for later comparison.
 
-```sh
-$ pip install -r ./requirements.txt
+## Results
+
+### Latency Summary (milliseconds, over 160 requests per stage)
+
+| Method              | Mean  | Median | Std Dev | Min   | Max    |
+|---------------------|-------|--------|---------|-------|--------|
+| Host                | 32.81 | 31.97  | 7.73    | 20.58 | 83.86  |
+| Docker              | 26.23 | 23.76  | 7.89    | 17.79 | 80.83  |
+| Compose             | 26.19 | 24.04  | 10.33   | 17.92 | 131.64 |
+| Swarm (1 replica)   | 45.31 | 42.82  | 13.39   | 28.64 | 150.13 |
+| Swarm (3 replicas)  | 37.57 | 35.48  | 7.15    | 26.05 | 84.95  |
+
+![Latency Comparison](homeworks/one/results/latency_comparison.png)
+![Latency Distribution](homeworks/one/results/latency_distribution.png)
+
+*Note: CPU%, Memory%, and Network I/O were observable via `docker stats` during testing but were not systematically captured across all runs in this iteration — this is a known limitation of the current dataset.*
+
+### Analysis
+
+**Docker and Compose perform virtually identically** (~26ms average), which makes sense: Compose doesn't introduce a new execution engine, it's a declarative wrapper around the same Docker Engine. Compose showed slightly higher variance (std dev 10.33 vs 7.89), likely attributable to the `network_mode: host` configuration used to work around network restrictions (see *Notable Engineering Decisions* below).
+
+**Host was slightly slower than Docker/Compose** (32.81ms vs ~26ms) — counter to the naive expectation that direct execution should be fastest. This is best explained by the lack of resource isolation on the host: the Flask process competes with every other running process on the machine for CPU time, whereas containers run in a comparatively more isolated environment. An initial test run showed a large outlier (388.99ms) that turned out to be a data-collection artifact (two test runs accidentally concatenated into one file); after re-running with clean data collection, latency was stable and consistent with this explanation.
+
+**Swarm with 1 replica was the slowest configuration** (45.31ms) — Swarm builds a virtual overlay network for its services, which adds routing overhead even with a single replica, before any of the benefits of load distribution can offset that cost.
+
+**Swarm with 3 replicas improved significantly over 1 replica** (37.57ms) and had the **lowest standard deviation of all methods** (7.15) — the most consistent/predictable latency of any configuration. This demonstrates Swarm's core value proposition: distributing load across replicas smooths out per-request variance, even though the underlying per-request overhead (compared to a bare Docker container) is still present.
+
+### Pros & Cons
+
+| Method | Pros | Cons |
+|---|---|---|
+| **Host** | Simplest setup, no extra tooling | No isolation from other system processes → less predictable performance; dependency management is manual and environment-specific |
+| **Docker** | Fastest and most consistent for a single service; portable, reproducible environment | No built-in scaling or self-healing; manual container lifecycle management |
+| **Docker Compose** | Declarative, reproducible multi-container config; easy to version-control | Performance is essentially identical to raw Docker — its value is operational, not performance-related |
+| **Docker Swarm** | Built-in load balancing, horizontal scaling, and self-healing (failed replicas are automatically replaced) | Overlay network introduces latency overhead; added operational complexity not justified for simple, low-scale workloads |
+
+## Notable Engineering Decisions & Challenges
+
+Several deviations from a "textbook" setup were necessary due to internet filtering restrictions in the deployment environment (Iran), where Docker Hub, PyPI, `download.pytorch.org`, and HuggingFace all require a VPN or mirror to reach reliably. These are documented here in the interest of transparency:
+
+- **`docker-compose.yml` uses `network_mode: host`** instead of standard port mapping (`8080:5000`). With the default Docker bridge network, containers could not route through the host's VPN tunnel to reach HuggingFace — using host networking resolved this. As a side effect, Compose tests were run against port `5000` rather than `8080`.
+- **The sentiment model is pre-downloaded ("baked") into the Docker image at build time** (via an extra `RUN python -c "from transformers import pipeline; ..."` step in the Dockerfile), rather than being downloaded at container startup. This was necessary because Docker Swarm's overlay network intermittently failed to resolve DNS for HuggingFace at runtime — baking the model in removes any runtime dependency on external network access, and has no effect on the measured inference latency (which only times the actual model inference call, not model loading).
+- A Docker Hub registry mirror (ArvanCloud) and manual DNS servers were configured in `/etc/docker/daemon.json` to improve reliability of image pulls under network restrictions.
+
+## Running It Yourself
+
+```bash
+cd homeworks/one
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+
+# Host baseline
+python app.py &
+sh ./latency_test.sh 127.0.0.1 5000
+
+# Docker
+docker build -t llm-inference-image .
+docker run -d --name llm-inference-container -p 5000:5000 llm-inference-image
+sh ./latency_test.sh 127.0.0.1 5000
+
+# Compose
+docker compose up -d
+sh ./latency_test.sh 127.0.0.1 5000
+
+# Swarm
+docker swarm init
+docker service create --name llm-inference-service --publish 8080:5000 llm-inference-image:latest
+sh ./latency_test.sh 127.0.0.1 8080
+docker service scale llm-inference-service=3
+sh ./latency_test.sh 127.0.0.1 8080
+
+# Analysis
+python analyze_results.py
 ```
 
-Take a quick look at the code located in `app.py`. There is an environment variable called `METRICS_LOG_FILE`. You need to change its value by setting it as a system environment variable in the next steps. This variable determines the file where the application will put outputs, and by default, it is `system_inference_metrics.csv`.
+## Author
 
-Then run the application on your own system via:
-
-```sh
-$ python ./app.py
-```
-
-When you run the application for the first time, it will take a moment to fetch the required packages. Please be patient until it is done.
-
-The output logs are as follows:
-
-```log
-Device set to use cpu
-* Serving Flask app 'app'
-* Debug mode: off
-WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
-* Running on all addresses (0.0.0.0)
-* Running on http://127.0.0.1:5000
-* Running on http://172.31.16.142:5000
-Press CTRL+C to quit
-```
-
-The first IP, 127.0.0.1, is your localhost system IP, which is the IP address you need to work with.
-
-To ensure the inference application works fine, open another terminal and run this command:
-
-```sh
-# Example Request
-$ curl -X POST -H "Content-Type: application/json" -d '{"text": "This movie was fantastic!"}' http://localhost:5000/infer
-```
-
-The result of a query is a CSV-formatted text like:
-
-```csv
-Inference Latency (ms),Prediction,Input Text,Timestamp
-205.87,POSITIVE,This movie was fantastic!,2025-03-01T00:31:16.866537
-```
-
-Just take a look at the CSV file created with the name `system_inference_metrics.csv` and see the latency of the query. After viewing the CSV file content, <mark>delete it</mark>.
-
-For this step, you need to run the `latency_test.sh` file via:
-
-```sh
-$ sh ./latency_test.sh 127.0.0.1 5000
-```
-
-In this script there is bunch of different comments about movies. After running it, the output is like:
-
-```log
-...
-Query 157
-Query 158
-Query 159
-Query 160
-```
-
-Note that the `system_inference_metrics.csv` file must contain <mark>161</mark> tuples.
-
-### Containerization
-
-After running these queries and fetching the results, please go ahead and take a look at the `Dockerfile`. I have filled this file with comments so you can understand what I am looking for in this file, but let me explain it here too. The file is the manifest you need to create a Docker image, but creating it does not mean you are running it. It is a manifest to show the orchestration tools how to build your image. You need to follow eight steps to build your image. These steps are as follows:
-
-<ol>
-<li>Use the official Python 3.12-slim image as the base image.</li>
-<li>Set the working directory inside the container to /app.</li>
-<li>Copy the requirements.txt file from the host machine to the container's working directory.</li>
-<li>Install Python dependencies listed in requirements.txt.</li>
-<li>Copy the app.py file from the host machine to the container's working directory.</li>
-<li>Set an environment variable inside the container for the CSV file. This variable specifies the name of the CSV file to be used by the application, <mark><b>which must be `docker_system_inference_metrics.csv`.</b></mark></li>
-<li>Expose port 5000 to allow external access to the application running inside the container.</li>
-<li>Specify the command to run the application when the container starts.</li>
-</ol>
-
-You have to use these keywords and <mark>nothing</mark> other than these:
-
-```docker
-FROM
-WORKDIR
-COPY
-ENV
-RUN
-EXPOSE
-CMD
-```
-
-Then build the image with the name <mark>`llm-inference-image`</mark>, push it to [Docker Hub](https://hub.docker.com) (you need an account for that), and provide the image name like `<YOUR_DOCKER_HUB_NAME>/llm-inference-image` in your report.
-
-```sh
-# Just to be specific, build the image via `llm-inference-image` name:
-$ docker build -t llm-inference-image .
-```
-
-**BONUS**: Use a GitHub action to create a CI pipeline, which means Continuous Integration:
-
-**Code → Build → ~~Test~~ → Push Image**
-
-Run the image to create a Docker container with the name `llm-inference-container` and do the port mapping so that it runs on port 5000 on your host machine.
-
-Then run this command to send the queries:
-
-```sh
-# DO NOT CHANGE THE 127.0.0.1 IP ADDRESS
-$ sh ./latency_test.sh 127.0.0.1 5000
-```
-
-If you have done the port mapping correctly, your queries will be sent out properly.
-
-**NOTE**: Observe and note down the `CPU %`, `MEM %`, and `NET I/O` values while running the queries via the `docker stats` command. Report them.
-
-Then connect to the container shell via:
-
-```sh
-$ docker exec -it llm-inference-container /bin/bash
-```
-
-Here, you will connect to the Docker container shell, and you have to be in the working directory that you set in the `Dockerfile`. Find the `docker_system_inference_metrics.csv` file, which I already told you to set after running the queries.
-
-```sh
-$ docker exec -it llm-inference-container /bin/bash
-# Check to have these files in `/app` dir
-# root@sth:/app# ls
-# app.py docker_system_inference_metrics.csv requirements.txt
-```
-
-After finding the `docker_system_inference_metrics.csv` file path in your Docker container, copy it to your host machine via the `docker cp` command.
-
-Stop (`docker stop`) and remove (`docker rm`) the container.
-
-### Composing!
-
-In this step, like the previous step, first make the `docker-compose.yml` file. The file is empty. Here are the notes you have to keep in mind when writing the `docker-compose.yml` file:
-
-- Use your own image that you had published on Docker Hub (do not use a local image).
-- Map the port so that you can run queries with this command:
-
-```sh
-# DO NOT CHANGE THE 127.0.0.1 IP ADDRESS
-$ sh ./latency_test.sh 127.0.0.1 8080
-```
-
-- Set the correct value for the `METRICS_LOG_FILE` environment variable so that it provides the name `inside_compose_inference_metrics.csv` for the applications output.
-- Define a volume so that it maps the `inside_compose_inference_metrics.csv` file from the container to the `compose_inference_metrics.csv` file in your host machine.
-
-Do the composing, run the container, execute the queries while getting the container states, and turn down the container via Docker Compose.
-
-### Orchestration & Scaling
-
-Here, you need to work with Docker `swarm`.
-
-First, run this command to enable Docker Swarm:
-
-```sh
-$ docker swarm init
-```
-
-Now deploy your image as a service:
-
-```sh
-$ docker service create --name llm-inference-service --publish 8080:5000 llm-inference-image:latest
-```
-
-**Note**: the service name should be **<mark>`llm-inference-service`</mark>**
-
-Now, like before, run the queries via this command while monitoring its container via the `docker stats` command:
-
-```sh
-$ sh ./latency_test.sh 127.0.0.1 8080
-```
-
-Here, the configuration is just having one replica. In a scalable, reliable and available system, we need backups in case of any issues, so increase the number of containers to 3 by this command:
-
-```sh
-$ docker service scale llm-inference-service=3
-```
-
-Then check the service via:
-
-```sh
-$ docker service ps llm-inference-service
-```
-
-Now first run the `docker stats` and then run the queries again. How would you describe the change in all three containers' metrics like `NET I/O` values? <mark>Provide a detailed explanation in your report</mark>.
-
-Now stop the services and leave the swarm by:
-
-```sh
-$ docker service rm llm-inference-service
-$ docker swarm leave --force
-```
-
-The first homework is done.
+Taha Abolhasani — Computer Engineering student, aspiring Cloud Engineer.
