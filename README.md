@@ -43,8 +43,8 @@ homeworks/one/
 | Swarm (1 replica)   | 45.31 | 42.82  | 13.39   | 28.64 | 150.13 |
 | Swarm (3 replicas)  | 37.57 | 35.48  | 7.15    | 26.05 | 84.95  |
 
-![Latency Comparison](homeworks/one/results/latency_comparison.png)
-![Latency Distribution](homeworks/one/results/latency_distribution.png)
+![Latency Comparison](results/latency_comparison.png)
+![Latency Distribution](/results/latency_distribution.png)
 
 *Note: CPU%, Memory%, and Network I/O were observable via `docker stats` during testing but were not systematically captured across all runs in this iteration — this is a known limitation of the current dataset.*
 
