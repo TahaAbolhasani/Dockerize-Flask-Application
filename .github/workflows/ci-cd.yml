@@ -21,11 +21,11 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install -r homeworks/one/requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Build Docker image
         run: |
-          docker build -t llm-inference-image homeworks/one
+          docker build -t llm-inference-image 
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
